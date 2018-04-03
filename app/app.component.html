@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Online Store</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="spacetop"></div>
+		<div class="container">
+			<div class="row">
+				<div class="headerspace col-sm=12 col-md=12">
+					<h1 class="HeaderAlign">Online Store</h1>
+					<h4 class="headbottom"> Search Product<input class="serchspace" type="text" #myInput [(ngModel)]="name" (input)="filterItem(myInput.value)" maxlength="32" /></h4>
+				</div>
+			</div>
+			<div class="row spacesearchlist">
+				<div class="col-sm-9 col-md-9 bodyRightborder productdatascroll">
+					<h3>Product List</h3>
+					<div *ngIf="this.products.length == 0">
+						<p> Product is not Available</p>
+					</div>
+						
+					<div class="dbox" *ngFor="let product of products">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								{{product.name}}
+							</div>
+							<div class="panel-body">
+								<img [src]="ImageBasePath+product.images[0].url" class="img-responsive" alt="Image">
+							</div>
+							<div class="panel-footer">
+								{{product.price.value}}	&euro;<br/>
+								<input class="btn btn-success" type="button" (click)="addItemToCart(product)" value="Add to Cart" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3 col-md-3 productdatascroll">
+					<div class="headingwidth">
+						<h3>{{this.cartListName}}</h3>
+					</div>
+					<input *ngIf="!this.showData" class="btn btn-success" type="button" (click)="update()" value="Update Shopping List Name" />
+					<div *ngIf="this.showData"><br/>
+						<input type="text" id="modifieddata" #myInput [(ngModel)]="modifieddata" maxlength="32"/><br/><br/>
+						<input class="btn btn-success" type="button" (click)="save(myInput.value)" value="Update" />
+						<input class="btn btn-success" type="button" (click)="cancel()" value="Cancel" />
+					</div>
+					<div *ngIf="this.cart.length != 0">
+						<h5>Purchase Total : {{this.total | number : '1.2'}}	&euro;</h5>
+					</div>
+					<div class="dbox" *ngFor="let c of cart">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								{{c.name}}
+							</div>
+							<div class="panel-body">
+								<img [src]="ImageBasePath+c.images[0].url" class="img-responsive" alt="Image">
+							</div>
+							<div class="panel-footer">
+								<input type='button' value='-' class='qtyminus'  (click)="removeItem(c)" field='quantity' />
+								<span> {{c.count}}</span>
+								<input type='button' value='+' class='qtyplus' (click)="addItemToCart(c)" field='quantity' /><br/>
+								<span> Total : {{c.price.value*c.count | number : '1.2'}} &euro;</span><br/>
+								<input class="btn btn-success" type="button" (click)="removeItemCart(c)" value="Remove Product" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

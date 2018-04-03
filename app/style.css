@@ -1,0 +1,91 @@
+.container{
+    border: 2px solid black;	
+}
+
+.panel-body{
+	width:100px;
+	height:100px;
+	margin-left: 25px;
+}
+
+.HeaderAlign{
+	text-align:center;
+	margin-bottom: -16px;
+}
+
+.panel-footer {
+    text-align: center;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.dbox{
+    margin-right: 4px;
+    display: inline-block;
+    width: 150px;
+    margin: 5px;
+}
+
+.navbar{
+    margin-bottom: 50px;
+    border-radius: 0;
+}
+    
+/* Remove the jumbotron's default bottom margin */ 
+.jumbotron {
+    margin-bottom: 0;
+}
+   
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+.HeaderAlign{
+	text-align: center;
+}
+	
+.headbottom{
+	border-bottom:2px solid black;
+	padding:10px;
+}
+
+.headerspace{
+    margin-top: -1em;
+	margin-bottom: -.6em;
+}
+
+.productdatascroll{
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height:530px;
+}
+
+.panel-heading {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+	width:149px;
+	height:72px;
+	text-align: center;
+}
+
+.bodyRightborder{
+	border-right: 2px solid;
+}
+
+.spacetop{
+	margin-bottom: 20px;
+}
+.serchspace{
+	margin-left:5px;
+}
+.headingwidth
+{
+	width:195px;
+}
+
